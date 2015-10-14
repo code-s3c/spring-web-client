@@ -57,4 +57,15 @@
             </security:user-service>
         </security:authentication-provider>
     </security:authentication-manager>
+    
+    <!-- Configure the remote services that will be injected by spring -->
+    <bean id="complexMathCalculatorProxyService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+        <property name="serviceUrl">
+            <value>http://localhost:8080/sabremote/complexMathCalculatorService</value>
+        </property>
+        
+        <property name="serviceInterface">
+            <value>com.sab2i.demo.service.IComplexMathService</value>
+        </property>
+    </bean>
 </beans>
